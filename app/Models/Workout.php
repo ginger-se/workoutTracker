@@ -10,7 +10,6 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Workout extends Model {
   /** @use HasFactory<\Database\Factories\WorkoutFactory> */
   use HasFactory;
-  protected $guarded = [];
 
   public function workoutExcersises(): HasMany {
     return $this->hasMany(WorkoutExcersise::class);
