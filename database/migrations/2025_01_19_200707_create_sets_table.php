@@ -13,8 +13,8 @@ return new class extends Migration {
   public function up(): void {
     Schema::create('sets', function (Blueprint $table) {
       $table->id();
-      $table->int('reps');
-      $table->int('weight');
+      $table->integer('reps');
+      $table->integer('weight');
       $table->foreignIdFor(SetType::class);
       $table->foreignIdFor(WorkoutExercise::class);
       $table->timestamps();
