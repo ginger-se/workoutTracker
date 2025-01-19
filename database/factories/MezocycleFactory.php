@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\MezocycleType;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -17,7 +18,7 @@ class MezocycleFactory extends Factory {
   public function definition(): array {
     return [
       'user_id' => 1,
-      // 'type' => fake()->randomElement(['mezocycle', 'cycling', 'running']),
+      'type' => MezocycleType::all()->random(),
       'start_date' => now(),
       'end_date' => now()->addWeeks(fake()->randomElement([8, 9, 10, 11, 12]))
     ];
