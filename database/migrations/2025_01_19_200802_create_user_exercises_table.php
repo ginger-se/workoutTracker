@@ -14,8 +14,8 @@ return new class extends Migration {
   public function up(): void {
     Schema::create('user_exercises', function (Blueprint $table) {
       $table->id();
-      $table->int('oneRepMax');
-      $table->int('tenRepMax');
+      $table->integer('one_rep_max');
+      $table->integer('ten_rep_max');
       $table->foreignIdFor(Exercise::class);
       $table->foreignIdFor(User::class);
       $table->timestamps();
