@@ -44,4 +44,7 @@ class User extends Authenticatable {
   public function mezocycles(): HasMany {
     return $this->hasMany(Mezocycle::class);
   }
+  public function excersise(): HasMany {
+    return $this->hasMany(UserExcersise::class, 'user_excersise_id');
+  }
 }

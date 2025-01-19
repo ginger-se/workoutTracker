@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Workout;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -13,6 +14,8 @@ return new class extends Migration
     {
         Schema::create('workout_excersises', function (Blueprint $table) {
             $table->id();
+            $table->foreignIdFor(Workout::class);
+            $table->int('position');
             $table->timestamps();
         });
     }
