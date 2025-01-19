@@ -11,8 +11,8 @@ class Workout extends Model {
   /** @use HasFactory<\Database\Factories\WorkoutFactory> */
   use HasFactory;
 
-  public function workoutExcersises(): HasMany {
-    return $this->hasMany(WorkoutExcersise::class);
+  public function workoutExercises(): HasMany {
+    return $this->hasMany(WorkoutExercise::class);
   }
 
   public function mezocycle(): BelongsTo {

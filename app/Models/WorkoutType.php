@@ -6,12 +6,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class MuscleGroup extends Model {
-  /** @use HasFactory<\Database\Factories\MuscleGroupFactory> */
+class WorkoutType extends Model {
+  /** @use HasFactory<\Database\Factories\TypeFactory> */
   use HasFactory;
   protected $gaurded = [];
 
-  public function exercises(): HasMany {
-    return $this->hasMany(Exercise::class);
+  public function muscleGroups(): HasMany {
+    return $this->hasMany(MuscleGroup::class);
   }
 }

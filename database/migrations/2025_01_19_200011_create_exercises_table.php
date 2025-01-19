@@ -1,6 +1,7 @@
 <?php
 
-use App\Models\WorkoutType;
+use App\Models\MuscleGroup;
+use App\Models\Routine;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -10,10 +11,13 @@ return new class extends Migration {
    * Run the migrations.
    */
   public function up(): void {
-    Schema::create('muscle_groups', function (Blueprint $table) {
+    Schema::create('exercises', function (Blueprint $table) {
+      $table->foreignIdFor(MuscleGroup::class);
+      $table->foreignIdFor(Routine::class);
       $table->id();
       $table->string('name');
-      $table->foreignIdFor(WorkoutType::class);
+      $table->string('description');
+      $table->string('tips');
       $table->timestamps();
     });
   }
@@ -22,6 +26,6 @@ return new class extends Migration {
    * Reverse the migrations.
    */
   public function down(): void {
-    Schema::dropIfExists('muscle_groups');
+    Schema::dropIfExists('exercises');
   }
 };
