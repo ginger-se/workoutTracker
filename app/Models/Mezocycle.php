@@ -11,14 +11,12 @@ class Mezocycle extends Model {
   /** @use HasFactory<\Database\Factories\MezocycleFactory> */
   use HasFactory;
 
-  protected $guarded = [];
-
   public function user(): BelongsTo {
     return $this->belongsTo(User::class);
   }
 
   public function type(): BelongsTo {
-    return $this->belongsTo(MezocycleType::class);
+    return $this->belongsTo(MezocycleType::class, "mezocycle_type_id");
   }
 
   public function workouts(): HasMany {
