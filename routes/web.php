@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PlanController;
 use App\Http\Controllers\ProfileController;
 use App\Models\Mezocycle;
 use Illuminate\Foundation\Application;
@@ -15,6 +16,8 @@ Route::get('/', function () {
     'phpVersion' => PHP_VERSION,
   ]);
 });
+
+Route::get('/plan', [PlanController::class, 'index']);
 
 Route::get('/dashboard', function () {
   return Inertia::render('Dashboard', [
