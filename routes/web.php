@@ -17,7 +17,7 @@ Route::get('/', function () {
   ]);
 });
 
-Route::get('/plan', [PlanController::class, 'index']);
+Route::get('/plan', [PlanController::class, 'index'])->name('plan/index');
 
 Route::get('/dashboard', function () {
   return Inertia::render('Dashboard', [
