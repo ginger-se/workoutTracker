@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Models\MuscleGroup;
+use App\Models\Routine;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -15,7 +17,11 @@ class ExerciseFactory extends Factory {
    */
   public function definition(): array {
     return [
-      //
+      'name' => fake()->name(),
+      'description' => fake()->realText(),
+      'tips' => fake()->realText(),
+      'muscle_group_id' => MuscleGroup::factory(),
+      'routine_id' => Routine::factory(),
     ];
   }
 }

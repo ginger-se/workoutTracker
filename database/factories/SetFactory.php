@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Models\SetType;
+use App\Models\WorkoutExercise;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +19,10 @@ class SetFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'reps' => fake()->numberBetween(1, 30),
+            'weight' => fake()->numberBetween(5,405),
+            'set_type_id' => SetType::factory(),
+            'workout_exercise_id' => WorkoutExercise::factory(),
         ];
     }
 }

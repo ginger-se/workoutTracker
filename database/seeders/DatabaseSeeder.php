@@ -21,7 +21,7 @@ class DatabaseSeeder extends Seeder {
     ]);
 
     $this->call(MezocycleTypeSeeder::class);
-
+    $this->call(SetTypeSeeder::class);
     Mezocycle::factory(5)->create();
   }
 }

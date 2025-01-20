@@ -19,4 +19,8 @@ class PlanController extends Controller {
       'types' => MezocycleType::all(),
     ]);
   }
+  public function store() {
+
+    return redirect('Plans/{id}/edit', []);
+  }
 }
