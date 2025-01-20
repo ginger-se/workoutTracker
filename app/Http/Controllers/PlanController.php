@@ -46,11 +46,17 @@ class PlanController extends Controller {
   }
 
   public function update(Mezocycle $mezocycle) {
-    $mezocycle->update(request()->validate([
+    $attributes = request()->validate([
       'type' => 'exists:mezocycle_types,id',
       'start_date' => 'required|date',
       'end_date' => 'required|date',
-    ]));
+    ]);
+
+    $mezocycle->update([
+      'mezocycle_type_id' => $attributes['type'],
+      'start_date' => $attributes['start_date'],
+      'end_date' => $attributes['end_date'],
+    ]);
 
     return redirect("plan/index");
   }
