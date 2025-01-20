@@ -20,10 +20,8 @@ class DatabaseSeeder extends Seeder {
       'password' => 'password',
     ]);
 
-    
-
     $this->call(MezocycleTypeSeeder::class);
-
+    $this->call(SetTypeSeeder::class);
     Mezocycle::factory(5)->create();
   }
 }
