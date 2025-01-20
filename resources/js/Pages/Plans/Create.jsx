@@ -16,7 +16,7 @@ export default function Create() {
         e.preventDefault();
         form.post(route("plan/store"));
     }
-    console.log(form);
+
 
     return (
         <AuthenticatedLayout
@@ -29,7 +29,7 @@ export default function Create() {
             <div className="py-12">
                 <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
                     <div className="px-4 py-5 sm:px-6">
-                        <PlanForm submit={submit} types={types} form={form} />
+                        <PlanForm submit={submit} types={types} form={form} buttonMessage="Create" />
                     </div>
                 </div>
             </div>

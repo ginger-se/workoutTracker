@@ -1,15 +1,14 @@
 import { Button } from "../ui/button";
 import { Input } from "../ui/input";
 
-export function PlanForm({submit, types, form}) {
+export function PlanForm({submit, types, form, buttonMessage}) {
     return (
         <form onSubmit={submit}>
                             <div className="space-y-6">
                                 <div>
                                     <label
                                         htmlFor="start_date"
-                                        className="block text-sm font-medium text-gray-700"
-                                    >
+                                        className="block text-sm font-medium text-gray-700">
                                         Start Date
                                     </label>
                                     <div className="mt-1">
@@ -19,10 +18,11 @@ export function PlanForm({submit, types, form}) {
                                             name="start_date"
                                             value={form.data.start_date}
                                             onChange={(e) =>
-                                                form.setData(
+                                                {
+                                                    form.setData(
                                                     "start_date",
                                                     e.target.value
-                                                )
+                                                )}
                                             }
                                             className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
                                     </div>
@@ -100,7 +100,7 @@ export function PlanForm({submit, types, form}) {
                                     )}
                                 </div>
                                 <div className="flex justify-end">
-                                    <Button type="submit">Create</Button>
+                                    <Button type="submit">{buttonMessage}</Button>
                                 </div>
                             </div>
                         </form>

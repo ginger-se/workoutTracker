@@ -5,10 +5,9 @@ import { useForm, usePage } from "@inertiajs/react";
 
 export default function Edit() {
     const {mezocycle, types} = usePage().props;
-    console.log(mezocycle);
     const form = useForm({
-        start_date: new Date(mezocycle.start_date).toLocaleDateString("en-ZA").replaceAll("/", "-"),
-        end_date: new Date(mezocycle.end_date).toLocaleDateString("en-ZA").replaceAll("/", "-"),
+        start_date: mezocycle.start_date,
+        end_date: mezocycle.end_date,
         type: mezocycle.type.id,
     });
 
@@ -31,7 +30,7 @@ export default function Edit() {
             <div className="py-12">
                 <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
                     <div className="px-4 py-5 sm:px-6">
-                        <PlanForm submit={submit} types={types} form={form} />
+                        <PlanForm submit={submit} types={types} form={form} buttonMessage="Update" />
                     </div>
                 </div>
             </div>

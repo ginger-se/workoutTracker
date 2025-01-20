@@ -51,13 +51,13 @@ export default function Index() {
                                                     {plan.type.name}
                                                 </CardTitle>
                                                 <CardDescription>
-                                                    {new Date(
-                                                        plan.start_date
-                                                    ).toDateString()}{" "}
+                                                  
+                                                        {plan.start_date}
+                                              
                                                     -{" "}
-                                                    {new Date(
-                                                        plan.end_date
-                                                    ).toDateString()}
+                                                   
+                                                        {plan.end_date}
+                                               
                                                 </CardDescription>
                                             </div>
                                             <div>
