@@ -12,4 +12,12 @@ class PlanController extends Controller {
       'plans' => Mezocycle::with('type')->where('user_id', Auth::id())->get(),
     ]);
   }
+
+  public function store(){
+    
+    return redirect('Plans/{id}/edit', [
+
+    ]);
+  }
+
 }

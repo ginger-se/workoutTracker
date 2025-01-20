@@ -17,8 +17,6 @@ Route::get('/', function () {
   ]);
 });
 
-Route::get('/plan', [PlanController::class, 'index'])->name('plan/index');
-
 Route::get('/dashboard', function () {
   return Inertia::render('Dashboard', [
     'mezocycles' => Mezocycle::with('type')->where('user_id', Auth::id())->get(),
@@ -30,5 +28,10 @@ Route::middleware('auth')->group(function () {
   Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
   Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+// Our routes
+Route::get('/plan', [PlanController::class, 'index'])->name('plan/index');
+Route::post('/plan',[PlanController::class, 'store'])->name('plan/store');
+
 
 require __DIR__ . '/auth.php';
