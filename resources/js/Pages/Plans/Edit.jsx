@@ -16,7 +16,7 @@ export default function Edit() {
 
     function submit(e) {
         e.preventDefault();
-        form.patch(route("plan/update"));
+        form.patch(route("plan/update", {mezocycle: mezocycle.id}));
     }
 
 
