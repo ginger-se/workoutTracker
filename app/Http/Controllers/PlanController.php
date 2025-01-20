@@ -41,6 +41,7 @@ class PlanController extends Controller {
     $mezocycle->load('type');
     return inertia('Plans/Edit', [
       'mezocycle' => $mezocycle,
+      'types' => MezocycleType::all(),
     ]);
   }
 }
