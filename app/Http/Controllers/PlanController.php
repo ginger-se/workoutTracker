@@ -58,6 +58,6 @@ class PlanController extends Controller {
       'end_date' => $attributes['end_date'],
     ]);
 
-    return redirect("plan/index");
+    return redirect()->route('plan/index');
   }
 }
