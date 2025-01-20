@@ -16,7 +16,7 @@ export default function Edit() {
 
     function submit(e) {
         e.preventDefault();
-        form.post(route("plan/store"));
+        form.patch(route("plan/update"));
     }
 
 
