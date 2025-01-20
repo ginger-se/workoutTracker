@@ -19,8 +19,8 @@ class MezocycleFactory extends Factory {
     return [
       'user_id' => 1,
       'mezocycle_type_id' => MezocycleType::all()->random()->id,
-      'start_date' => now(),
-      'end_date' => now()->addWeeks(fake()->randomElement([8, 9, 10, 11, 12])),
+      'start_date' => now()->format('Y-m-d'),
+      'end_date' => now()->addWeeks(fake()->randomElement([8, 9, 10, 11, 12]))->format('Y-m-d'),
     ];
   }
 }

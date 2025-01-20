@@ -8,6 +8,7 @@ import {
 } from "@/Components/ui/card";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import { Head, Link, usePage } from "@inertiajs/react";
+import { parse } from "date-fns";
 
 export default function Index() {
     const plans = usePage().props.plans;
@@ -51,13 +52,17 @@ export default function Index() {
                                                     {plan.type.name}
                                                 </CardTitle>
                                                 <CardDescription>
-                                                  
-                                                        {plan.start_date}
-                                              
-                                                    -{" "}
-                                                   
-                                                        {plan.end_date}
-                                               
+                                                    {parse(
+                                                        plan.start_date,
+                                                        "yyyy-MM-dd",
+                                                        new Date()
+                                                    ).toDateString()}
+                                                    {" to "}
+                                                    {parse(
+                                                        plan.end_date,
+                                                        "yyyy-MM-dd",
+                                                        new Date()
+                                                    ).toDateString()}
                                                 </CardDescription>
                                             </div>
                                             <div>
