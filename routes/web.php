@@ -32,6 +32,7 @@ Route::middleware('auth')->group(function () {
   Route::get('/plan/create', [PlanController::class, 'create'])->name('plan/create');
   Route::post('/plan', [PlanController::class, 'store'])->name('plan/store');
   Route::get('/plan/{mezocycle}/edit', [PlanController::class, 'edit'])->name('plan/edit');
+  Route::patch('/plan/{mezocycle}', [PlanController::class, 'update'])->name('plan/update');
 });
 
 
