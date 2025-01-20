@@ -14,7 +14,7 @@ export default function Create() {
 
     function submit(e) {
         e.preventDefault();
-        post(route("plan.store"));
+        form.post(route("plan/store"));
     }
 
     return (
@@ -28,7 +28,7 @@ export default function Create() {
             <div className="py-12">
                 <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
                     <div className="px-4 py-5 sm:px-6">
-                        <form onSubmit={form.submit}>
+                        <form onSubmit={submit}>
                             <div className="space-y-6">
                                 <div>
                                     <label
@@ -52,6 +52,11 @@ export default function Create() {
                                             className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                         />
                                     </div>
+                                    {form.errors.start_date && (
+                                        <p className="text-sm text-destructive">
+                                            {form.errors.start_date}
+                                        </p>
+                                    )}
                                 </div>
                                 <div>
                                     <label
@@ -75,6 +80,11 @@ export default function Create() {
                                             className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                         />
                                     </div>
+                                    {form.errors.end_date && (
+                                        <p className="text-sm text-destructive">
+                                            {form.errors.end_date}
+                                        </p>
+                                    )}
                                 </div>
                                 <div>
                                     <label
@@ -96,6 +106,9 @@ export default function Create() {
                                             }
                                             className="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-base shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 md:text-sm"
                                         >
+                                            <option value="" disabled>
+                                                Choose...
+                                            </option>
                                             {types.map((type) => (
                                                 <option
                                                     key={type.id}
@@ -106,6 +119,11 @@ export default function Create() {
                                             ))}
                                         </select>
                                     </div>
+                                    {form.errors.type && (
+                                        <p className="text-sm text-destructive">
+                                            {form.errors.type}
+                                        </p>
+                                    )}
                                 </div>
                                 <div className="flex justify-end">
                                     <Button type="submit">Create</Button>

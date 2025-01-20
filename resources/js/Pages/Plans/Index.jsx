@@ -62,7 +62,9 @@ export default function Index() {
                                             </div>
                                             <div>
                                                 <Button asChild variant="ghost">
-                                                    <Link href="/plan/edit/{plan.id}">
+                                                    <Link
+                                                        href={`/plan/${plan.id}/edit`}
+                                                    >
                                                         Edit
                                                     </Link>
                                                 </Button>
