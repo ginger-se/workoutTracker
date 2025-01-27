@@ -18,4 +18,8 @@ class Workout extends Model {
   public function mezocycle(): BelongsTo {
     return $this->belongsTo(Mezocycle::class);
   }
+
+  public function workoutType(): BelongsTo {
+    return $this->belongsTo(WorkoutType::class);
+  }
 }

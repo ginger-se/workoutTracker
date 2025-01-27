@@ -38,7 +38,8 @@ class PlanController extends Controller {
   }
 
   public function edit(Mezocycle $mezocycle) {
-    $mezocycle->load('type');
+    $mezocycle->load(['type', 'workouts.workoutType']);
+
     return inertia('Plans/Edit', [
       'mezocycle' => $mezocycle,
       'types' => MezocycleType::all(),

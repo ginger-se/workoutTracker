@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Mezocycle;
 use App\Models\WorkoutType;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -14,6 +15,7 @@ return new class extends Migration {
       $table->id();
       $table->date('date');
       $table->string('status');
+      $table->foreignIdFor(Mezocycle::class)->constrained()->cascadeOnDelete();
       $table->foreignIdFor(WorkoutType::class);
       $table->timestamps();
     });
