@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Models\Exercise;
+use App\Models\Workout;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -15,7 +17,9 @@ class WorkoutExerciseFactory extends Factory {
    */
   public function definition(): array {
     return [
-      //
+      "workout_id" => Workout::all()->random()->id,
+      "exercise_id" => Exercise::all()->random()->id,
+      "position" => fake()->randomNumber(3),
     ];
   }
 }

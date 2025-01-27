@@ -25,9 +25,8 @@ class DatabaseSeeder extends Seeder {
     $this->call(MuscleGroups::class);
     $this->call(ExerciseSeeder::class);
     $this->call(WorkoutTypes::class);
-
-    Mezocycle::factory(5)->create();
-
+    $this->call(MezocycleSeeder::class);
     $this->call(WorkoutSeeder::class);
+    $this->call(WorkoutExerciseSeeder::class);
   }
 }

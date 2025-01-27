@@ -1,4 +1,6 @@
 export default function Edit({ workout }) {
     console.log(workout);
-    return <div>Edit</div>;
+    return workout.workoutExercises.map((workoutExercise) => (
+        <div key={workoutExercise.id}>{workoutExercise.exercise.name}</div>
+    ));
 }
