@@ -18,4 +18,7 @@ class WorkoutExercise extends Model {
   public function sets(): HasMany {
     return $this->hasMany(Set::class);
   }
+  public function exercise(): BelongsTo {
+    return $this->belongsTo(Exercise::class);
+  }
 }
