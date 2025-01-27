@@ -4,20 +4,17 @@ import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import { useForm, usePage } from "@inertiajs/react";
 
 export default function Edit() {
-    const {mezocycle, types} = usePage().props;
+    const { mezocycle, types } = usePage().props;
     const form = useForm({
         start_date: mezocycle.start_date,
         end_date: mezocycle.end_date,
         type: mezocycle.type.id,
     });
 
-    
-
     function submit(e) {
         e.preventDefault();
-        form.patch(route("plan/update", {mezocycle: mezocycle.id}));
+        form.patch(route("plan/update", { mezocycle: mezocycle.id }));
     }
-
 
     return (
         <AuthenticatedLayout
@@ -30,11 +27,16 @@ export default function Edit() {
             <div className="py-12">
                 <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
                     <div className="px-4 py-5 sm:px-6">
-                        <PlanForm submit={submit} types={types} form={form} buttonMessage="Update" />
+                        <PlanForm
+                            submit={submit}
+                            types={types}
+                            form={form}
+                            buttonMessage="Update"
+                            existingId={mezocycle.id}
+                        />
                     </div>
                 </div>
             </div>
         </AuthenticatedLayout>
     );
 }
-

@@ -59,4 +59,10 @@ class PlanController extends Controller {
 
     return redirect()->route('plan/index');
   }
+
+  public function destroy(Mezocycle $mezocycle) {
+    $mezocycle->delete();
+
+    return redirect()->route('plan/index');
+  }
 }

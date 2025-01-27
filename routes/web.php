@@ -33,6 +33,7 @@ Route::middleware('auth')->group(function () {
   Route::post('/plan', [PlanController::class, 'store'])->name('plan/store');
   Route::get('/plan/{mezocycle}/edit', [PlanController::class, 'edit'])->name('plan/edit');
   Route::patch('/plan/{mezocycle}', [PlanController::class, 'update'])->name('plan/update');
+  Route::delete('/plan/{mezocycle}', [PlanController::class, 'destroy'])->name('plan/destroy');
 });
 
 
