@@ -19,9 +19,7 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
-  return Inertia::render('Dashboard', [
-    'mezocycles' => Mezocycle::with('type')->where('user_id', Auth::id())->get(),
-  ]);
+  return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {

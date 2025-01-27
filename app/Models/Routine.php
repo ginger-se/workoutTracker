@@ -11,6 +11,8 @@ class Routine extends Model {
   /** @use HasFactory<\Database\Factories\RoutineFactory> */
   use HasFactory;
 
+  protected $with = ["type"];
+
   public function user(): BelongsTo {
     return $this->belongsTo(User::class);
   }

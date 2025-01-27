@@ -10,6 +10,8 @@ class Set extends Model {
   /** @use HasFactory<\Database\Factories\SetsFactory> */
   use HasFactory;
 
+  protected $with = ["workoutExercise", "setType"];
+
   public function workoutExercise(): BelongsTo {
     return $this->belongsTo(WorkoutExercise::class);
   }

@@ -11,6 +11,9 @@ class Workout extends Model {
   /** @use HasFactory<\Database\Factories\WorkoutFactory> */
   use HasFactory;
 
+  // protected $with = ["workoutExercises", "mezocycle", "workoutType"];
+  protected $with = ["workoutExercises", "workoutType"];
+
   public function workoutExercises(): HasMany {
     return $this->hasMany(WorkoutExercise::class);
   }

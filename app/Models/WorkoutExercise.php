@@ -11,6 +11,8 @@ class WorkoutExercise extends Model {
   /** @use HasFactory<\Database\Factories\WorkoutExerciseFactory> */
   use HasFactory;
 
+  // protected $with = ["workout", "exercise", "sets"];
+
   public function workout(): BelongsTo {
     return $this->belongsTo(Workout::class);
   }

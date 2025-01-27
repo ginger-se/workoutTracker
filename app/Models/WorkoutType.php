@@ -11,6 +11,8 @@ class WorkoutType extends Model {
   use HasFactory;
   protected $gaurded = [];
 
+  // protected $with = ["muscleGroups"];
+
   public function muscleGroups(): HasMany {
     return $this->hasMany(MuscleGroup::class);
   }

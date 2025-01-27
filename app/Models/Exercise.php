@@ -13,6 +13,8 @@ class Exercise extends Model {
 
   protected $guarded = [];
 
+  protected $with = ["muscleGroups", "workoutExercises"];
+
   public function muscleGroups(): BelongsTo {
     return $this->belongsTo(MuscleGroup::class);
   }

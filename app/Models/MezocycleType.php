@@ -10,6 +10,7 @@ class MezocycleType extends Model {
   /** @use HasFactory<\Database\Factories\MezocycleTypeFactory> */
   use HasFactory;
 
+
   public function mezocycles(): HasMany {
     return $this->hasMany(Mezocycle::class);
   }

@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Auth;
 class PlanController extends Controller {
   public function index() {
     return inertia('Plans/Index', [
-      'plans' => Mezocycle::with('type')->where('user_id', Auth::id())->get(),
+      'plans' => Mezocycle::where('user_id', Auth::id())->get(),
     ]);
   }
 

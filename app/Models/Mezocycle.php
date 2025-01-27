@@ -11,6 +11,8 @@ class Mezocycle extends Model {
   /** @use HasFactory<\Database\Factories\MezocycleFactory> */
   use HasFactory;
 
+  protected $with = ["type", "workouts"];
+
   public function user(): BelongsTo {
     return $this->belongsTo(User::class);
   }
