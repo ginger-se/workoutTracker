@@ -57,7 +57,9 @@ export function PlanWorkoutList({ workouts }) {
                                 </div>
                             </div>
                         </CardHeader>
-                        <CardContent></CardContent>
+                        <CardContent>
+                            {workout.workout_exercises.length} exercises
+                        </CardContent>
                     </Card>
                 ))}
             </div>
