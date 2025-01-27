@@ -22,6 +22,9 @@ class DatabaseSeeder extends Seeder {
 
     $this->call(MezocycleTypeSeeder::class);
     $this->call(SetTypeSeeder::class);
+    $this->call(MuscleGroups::class);
+    $this->call(ExerciseSeeder::class);
+    $this->call(WorkoutTypes::class);
     Mezocycle::factory(5)->create();
   }
 }
