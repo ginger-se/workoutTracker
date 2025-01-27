@@ -35,6 +35,9 @@ Route::middleware('auth')->group(function () {
   Route::delete('/plan/{mezocycle}', [PlanController::class, 'destroy'])->can("delete", "mezocycle")->name('plan/destroy');
 
   Route::get("/workout/{workout}/edit", [WorkoutController::class, "edit"])->can("view", "workout")->name("workout/edit");
+  Route::patch("/workout/{workout}", [WorkoutController::class, "update"])->can("update", "workout")->name("workout/update");
+  Route::post("/workout", [WorkoutController::class, "store"])->can("create", "workout")->name("workout/store");
+  Route::delete("/workout/{workout}", [WorkoutController::class, "destroy"])->can("delete", "workout")->name("workout/destroy");
 });
 
 
