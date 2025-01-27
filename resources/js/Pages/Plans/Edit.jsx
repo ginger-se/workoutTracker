@@ -1,4 +1,5 @@
 import { PlanForm } from "@/Components/forms/PlanForm";
+import { PlanWorkoutList } from "@/Components/PlanWorkoutList";
 
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import { useForm, usePage } from "@inertiajs/react";
@@ -35,6 +36,7 @@ export default function Edit() {
                             existingId={mezocycle.id}
                         />
                     </div>
+                    <PlanWorkoutList workouts={mezocycle.workouts} />
                 </div>
             </div>
         </AuthenticatedLayout>

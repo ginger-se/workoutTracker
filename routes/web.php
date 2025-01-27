@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\PlanController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\WorkoutController;
 use App\Models\Mezocycle;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Auth;
@@ -34,6 +35,8 @@ Route::middleware('auth')->group(function () {
   Route::get('/plan/{mezocycle}/edit', [PlanController::class, 'edit'])->can("view", "mezocycle")->name('plan/edit');
   Route::patch('/plan/{mezocycle}', [PlanController::class, 'update'])->can("update", "mezocycle")->name('plan/update');
   Route::delete('/plan/{mezocycle}', [PlanController::class, 'destroy'])->can("delete", "mezocycle")->name('plan/destroy');
+
+  Route::get("/workout/{workout}/edit", [WorkoutController::class, "edit"])->can("view", "workout")->name("workout/edit");
 });
 
 
