@@ -28,12 +28,12 @@ Route::middleware('auth')->group(function () {
   Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
   Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-  Route::get('/plan', [PlanController::class, 'index'])->name('plan/index');
-  Route::get('/plan/create', [PlanController::class, 'create'])->name('plan/create');
-  Route::post('/plan', [PlanController::class, 'store'])->name('plan/store');
-  Route::get('/plan/{mezocycle}/edit', [PlanController::class, 'edit'])->name('plan/edit');
-  Route::patch('/plan/{mezocycle}', [PlanController::class, 'update'])->name('plan/update');
-  Route::delete('/plan/{mezocycle}', [PlanController::class, 'destroy'])->name('plan/destroy');
+  Route::get('/plan', [PlanController::class, 'index'])->can("viewAny", Mezocycle::class)->name('plan/index');
+  Route::get('/plan/create', [PlanController::class, 'create'])->can("create", Mezocycle::class)->name('plan/create');
+  Route::post('/plan', [PlanController::class, 'store'])->can("create", Mezocycle::class)->name('plan/store');
+  Route::get('/plan/{mezocycle}/edit', [PlanController::class, 'edit'])->can("view", "mezocycle")->name('plan/edit');
+  Route::patch('/plan/{mezocycle}', [PlanController::class, 'update'])->can("update", "mezocycle")->name('plan/update');
+  Route::delete('/plan/{mezocycle}', [PlanController::class, 'destroy'])->can("delete", "mezocycle")->name('plan/destroy');
 });
 
 
